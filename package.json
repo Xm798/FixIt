@@ -1,40 +1,65 @@
 {
-  "name": "fixit-core",
-  "version": "0.4.0-alpha",
+  "name": "@hugo-fixit/core",
+  "type": "module",
+  "version": "0.4.5",
+  "nextVersion": "1.0.0",
   "private": true,
-  "packageManager": "pnpm@10.5.2",
+  "packageManager": "pnpm@11.4.0",
   "description": "Hugo FixIt core theme component source files",
+  "author": {
+    "name": "Lruihao",
+    "email": "1024@lruihao.cn",
+    "url": "https://lruihao.cn"
+  },
+  "license": "MIT",
+  "homepage": "https://fixit.lruihao.cn",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hugo-fixit/FixIt.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hugo-fixit/FixIt/issues"
+  },
   "keywords": [
     "hugo",
     "theme",
     "fixit"
   ],
-  "homepage": "https://github.com/hugo-fixit/FixIt#readme",
-  "bugs": {
-    "url": "https://github.com/hugo-fixit/FixIt/issues"
+  "engines": {
+    "node": ">=22"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/hugo-fixit/FixIt.git"
-  },
-  "license": "MIT",
-  "author": "Lruihao (https://lruihao.cn)",
-  "type": "module",
   "scripts": {
-    "build": "hugo --source=demo --themesDir ../.. --theme $PWD --gc --minify --logLevel info",
-    "server": "hugo server --source=demo --themesDir ../.. --theme $PWD -D --disableFastRender --navigateToChanged --ignoreCache -O",
-    "server:production": "npm run server -- -e production",
-    "server:docs": "hugo server --source=../fixit-docs -D --disableFastRender --navigateToChanged --ignoreCache -O",
-    "version": "fixit-releaser version --prod",
-    "postversion": "git push && git push --tags && npm run release",
-    "release": "fixit-releaser changelog",
-    "prepare": "husky"
+    "dev:demo": "pnpm -F demo dev",
+    "dev:test": "pnpm -F test dev",
+    "dev:docs": "hugo server --source=../fixit-docs -D --disableFastRender --navigateToChanged --ignoreCache -O",
+    "build:demo": "pnpm -F demo build",
+    "build:test": "pnpm -F test build",
+    "build": "concurrently 'pnpm build:demo' 'pnpm build:test' && pnpm -F integration start",
+    "clean": "rm -rf public resources/_gen apps/*/public apps/*/resources/_gen",
+    "preview": "serve public",
+    "lint": "eslint --cache .",
+    "typecheck": "tsc --noEmit",
+    "version": "pnpm -F versioning start prod",
+    "changelog": "auto-changelog-plus --starting-date 2021-12-18",
+    "gen:lexers": "pnpm -F helpers start chroma-lexers",
+    "prepare": "simple-git-hooks"
   },
   "devDependencies": {
-    "@hugo-fixit/fixit-releaser": "^1.2.3",
-    "husky": "^9.1.7"
+    "@antfu/eslint-config": "^9.0.0",
+    "@types/node": "^25.7.0",
+    "auto-changelog-plus": "^1.2.4",
+    "concurrently": "^9.2.1",
+    "eslint": "^10.3.0",
+    "lint-staged": "^17.0.4",
+    "serve": "^14.2.6",
+    "simple-git-hooks": "^2.13.1",
+    "tsx": "^4.21.0",
+    "typescript": "^6.0.3"
   },
-  "engines": {
-    "node": ">=18"
+  "simple-git-hooks": {
+    "pre-commit": "pnpm -F versioning start dev && pnpm typecheck && pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
   }
 }

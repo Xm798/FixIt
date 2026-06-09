@@ -13,9 +13,9 @@
   <a href="https://fixit.lruihao.cn/ecosystem/hugo-fixit/fixit/?lang=russian">Русский язык</a> |
   <a href="https://fixit.lruihao.cn/ecosystem/hugo-fixit/fixit/?lang=spanish">Español</a> |
   <a href="https://fixit.lruihao.cn/ecosystem/hugo-fixit/fixit/?lang=hindi">हिन्दी</a> |
-  <a href="https://fixit.lruihao.cn/ecosystem/hugo-fixit/fixit/?lang=german">deutsch</a> |
+  <a href="https://fixit.lruihao.cn/ecosystem/hugo-fixit/fixit/?lang=deutsch">Deutsch</a> |
   <a href="https://fixit.lruihao.cn/ecosystem/hugo-fixit/fixit/?lang=korean">한국어</a> |
-  <a href="https://fixit.lruihao.cn/ecosystem/hugo-fixit/fixit/?lang=japanese">しろうと</a>
+  <a href="https://fixit.lruihao.cn/ecosystem/hugo-fixit/fixit/?lang=japanese">日本語</a>
 </div>
 
 <a title="FixIt website" href="https://fixit.lruihao.cn"><img align="right" alt="FixIt logo" width="70" height="70" src="https://avatars.githubusercontent.com/u/110414864?s=200&v=4"></a>
@@ -24,25 +24,26 @@
 
 > It is based on the original [LoveIt](https://github.com/dillonzq/LoveIt) Theme, [KeepIt](https://github.com/Fastbyte01/KeepIt) Theme and [LeaveIt](https://github.com/liuzc/LeaveIt) Theme.
 
-[![GitHub release (latest by date)](https://img.shields.io/github/v/release/hugo-fixit/FixIt?style=flat)](https://github.com/hugo-fixit/FixIt/releases)
-[![Hugo](https://img.shields.io/badge/Hugo-%5E0.147.7-ff4088?style=flat&logo=hugo)](https://gohugo.io/)
-[![License](https://img.shields.io/github/license/hugo-fixit/FixIt?style=flat)](/LICENSE)
-[![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/hugo-fixit/FixIt)
+[![Build](https://img.shields.io/github/deployments/hugo-fixit/FixIt/Production?style=flat&label=Build&logo=vercel)](https://demo.fixit.lruihao.cn/)
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/hugo-fixit/FixIt?style=flat&label=Release&logo=github&include_prereleases)](https://github.com/hugo-fixit/FixIt/releases)
+[![Hugo](https://img.shields.io/badge/Hugo-%5E0.158.0-ff4088?style=flat&logo=hugo)](https://gohugo.io/)
+[![License](https://img.shields.io/github/license/hugo-fixit/FixIt?style=flat&label=License)](/LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/hugo-fixit/FixIt?style=social)](https://github.com/hugo-fixit/FixIt)
+[![Gitee star of FixIt](https://gitee.com/lruihao/FixIt/badge/star.svg)](https://gitee.com/lruihao/FixIt/stargazers)
+
+> [!WARNING]
+> **Version v0.x only accepts bug fixes. For new feature submissions, please develop on the [v1](https://github.com/hugo-fixit/FixIt/tree/v1) branch.**
+>
+> Version 1.0 is planned for release in **the first half of 2027**. Welcome to join the development and discussion! See [v1 Milestone](https://github.com/hugo-fixit/FixIt/milestone/8) for details.
 
 ## Live Preview
 
 <p align="center">
-  💟 <a href="https://fixit.lruihao.cn">Production</a> | ❇️ <a href="https://pre.fixit.lruihao.cn">Preview</a> | 🚼 <a href="https://demo.fixit.lruihao.cn">Demo</a> | 🆕 <a href="https://hugo-fixit.github.io/hugo-fixit-starter/">Starter</a>
+  💟 <a href="https://fixit.lruihao.cn">Docs</a> | ❇️ <a href="https://demo.fixit.lruihao.cn/test/">Test</a> | 🚼 <a href="https://demo.fixit.lruihao.cn">Demo</a> | 🆕 <a href="https://hugo-fixit.github.io/hugo-fixit-starter/">Starter</a>
 <br>
 <br>
   More FixIt examples <a href="https://fixit.lruihao.cn/showcase/">here</a>.
 </p>
-
-## Why choose FixIt
-
-I don't know why 🤷.
-
-<!-- Too lazy to write... -->
 
 ## Usage
 
@@ -136,7 +137,7 @@ Click the following links to generate a new repository with template:
 - **Sub Menu** supported
 - **Content Encryption** supported (Pages, Partial)
 - **Friends** page embedded template
-- **Search** supported by [algolia](https://www.algolia.com/), [Fuse.js](https://fusejs.io/), CSE or [PostChat](https://ai.zhheo.com/console/login?InviteID=85041330)
+- **Search** supported by [algolia](https://www.algolia.com/), [Fuse.js](https://fusejs.io/), [Pagefind](https://pagefind.app), CSE or [PostChat](https://ai.zhheo.com/console/login?InviteID=85041330)
 - **Custom Search Engine (CSE)** supported by [Google](https://programmablesearchengine.google.com/)
 - **Twemoji** supported
 - Automatically **highlighting** code
@@ -145,14 +146,16 @@ Click the following links to generate a new repository with template:
 - Extended Markdown syntax for **[Font Awesome](https://fontawesome.com/) icons**
 - Extended Markdown syntax for **ruby annotation**
 - Extended Markdown syntax for **fraction**
+- Multiple **admonitions** shortcode or **alerts** extended Markdown syntax
+- **Tabs** and **Tab** shortcode with multiple design styles
 - **Mathematical formula** supported by [KaTeX](https://katex.org/) or [MathJax](https://www.mathjax.org)
 - **Diagrams** code fences extended and shortcode supported by [mermaid](https://github.com/knsv/mermaid)
 - **Interactive data visualization** shortcode and code fences extended supported by [ECharts](https://echarts.apache.org/)
 - **Timeline** code fences extended and shortcode supported
+- **File tree** code fences extended and shortcode supported
 - **Mapbox** shortcode supported by [Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js)
 - **Music player** shortcode supported by [APlayer](https://github.com/MoePlayer/APlayer) and [MetingJS](https://github.com/metowolf/MetingJS)
 - **Bilibili player** and **Douyin player** shortcode
-- Kinds of **admonitions** shortcode
 - **Custom style** shortcode
 - **Custom script** shortcode
 - Open more **custom blocks**
@@ -186,12 +189,14 @@ FixIt supports multilingual and i18n. For more information, see the [Content Man
 - Romanian
 - Vietnamese
 - Hindi
+- Japanese
+- Korean
 
 </details>
 
 ## Theme Components
 
-The FixIt theme balances **simplicity** and **extensibility** with extra [Hugo theme components](https://fixit.lruihao.cn/ecosystem/#-components) for customization.
+To balance **simplicity** and **extensibility**, FixIt theme provides extra [Hugo theme components](https://fixit.lruihao.cn/ecosystem/#-components) for customization.
 
 <details>
 <summary>Click to view.</summary>
@@ -203,6 +208,8 @@ The FixIt theme balances **simplicity** and **extensibility** with extra [Hugo t
   🐟 A canvas implemented animation effect of small fish swimming.
 - [cmpt-mdevtools](https://github.com/hugo-fixit/cmpt-mdevtools)\
   Mobile devtools component powered by vConsole and eruda.
+- [cmpt-santa-hat](https://github.com/hugo-fixit/cmpt-santa-hat)\
+  A Christmas Easter Egg by JavaScript.
 - [cmpt-translate](https://github.com/hugo-fixit/cmpt-translate)\
   🌐 A component for site automatic translation.
 - [component-projects](https://github.com/hugo-fixit/component-projects)\
@@ -231,19 +238,19 @@ The FixIt theme balances **simplicity** and **extensibility** with extra [Hugo t
 
 All feedback is welcome! Head over to the [discussions][discussions], [Pull requests][pulls] and [issues][issues] tracker.
 
-| Official Community          | Description                     |
-| :-------------------------- | :------------------------------ |
-| [Discussions][discussions]  | GitHub discussion forum         |
-| [FixIt WeChat group][wx-mp] | Follow and reply "FixIt" to get |
-| [FixIt QQ group][qq-group]  | QQ group: `814031017`           |
-| [Hugo FixIt Planet][zsxq]   | Paid knowledge Planet           |
+| Official Community           | Description                     |
+| :--------------------------- | :------------------------------ |
+| [Discussions][discussions]   | GitHub discussion forum         |
+| [FixIt WeChat group][wx-mp]  | Follow and reply "FixIt" to get |
+| [FixIt QQ group][qq-group]   | QQ group: `814031017`           |
+| [FixIt Dev group][dev-group] | QQ group: `770835493`           |
 
 [discussions]: https://github.com/hugo-fixit/FixIt/discussions
 [pulls]: https://github.com/hugo-fixit/FixIt/pulls
 [issues]: https://github.com/hugo-fixit/FixIt/issues
-[qq-group]: https://qm.qq.com/cgi-bin/qm/qr?k=awbwdTtSQ_-H5QGzeJxdWgv6JMbNehNM&jump_from=webapi
-[zsxq]: https://t.zsxq.com/GgKEW
 [wx-mp]: https://lruihao.cn/images/qr-wx-mp.webp
+[qq-group]: https://qm.qq.com/q/Mn1I7ljqsS
+[dev-group]: https://qm.qq.com/q/ky3uru0mbu
 
 ## Contributing
 
@@ -256,10 +263,12 @@ Also, we welcome Issue or PR to our [official-components](https://github.com/hug
 
 ## Acknowledgements
 
-Thanks to all the [contributors](https://github.com/hugo-fixit/FixIt/graphs/contributors) for their support!
+Thanks to the support of [all contributors](https://github.com/hugo-fixit/FixIt/graphs/contributors)!
+
+Thanks to the [Hugo DoIt](https://github.com/HEIGE-PCloud/DoIt) theme and [Hexo NexT](https://github.com/next-theme/hexo-theme-next) theme for inspiration and reference.
 
 <details>
-<summary>Thanks to the authors of following resources included in the theme:</summary>
+<summary>Thanks to all the open source projects used in the FixIt theme.</summary>
 
 - [normalize.css](https://github.com/necolas/normalize.css)
 - [Font Awesome](https://fontawesome.com/)
@@ -292,18 +301,12 @@ Thanks to all the [contributors](https://github.com/hugo-fixit/FixIt/graphs/cont
 - [Waline](https://waline.js.org/)
 - [Twikoo](https://twikoo.js.org/)
 - [github-corners](https://github.com/tholman/github-corners)
-- [giscus](https://giscus.app/)
+- [giscus](https://giscus.app/zh-CN)
 - [crypto-js](https://github.com/brix/crypto-js)
 - [pace](https://github.com/CodeByZach/pace)
 - [xxhash-wasm](https://github.com/jungomi/xxhash-wasm)
-
-</details>
-
-<details>
-<summary>The FixIt also draws on some features of the following projects, and thanks to their authors as well:</summary>
-
-- [DoIt](https://github.com/HEIGE-PCloud/DoIt)
-- [NexT](https://github.com/next-theme/hexo-theme-next)
+- [`<tab-container>` element](https://github.com/github/tab-container-element)
+- [`<json-viewer>` element](https://github.com/Lruihao/json-viewer-element)
 
 </details>
 
@@ -311,17 +314,17 @@ Thanks to all the [contributors](https://github.com/hugo-fixit/FixIt/graphs/cont
 
 FixIt is licensed under the **MIT** license. Check the [LICENSE file](/LICENSE) for details.
 
-## Sponsor
+## Sponsor Support
 
-If you enjoy the theme, please consider buying me a coffee ☕️. Thanks!
+If you enjoy the theme, please consider buying me a cup of coffee ☕️. Thanks!
 
-- [Wechat](/images/wechatpay.jpg)
+- [WeChat Pay](/images/wechatpay.jpg)
 - [Alipay](/images/alipay.jpg)
-- [PayPal](https://paypal.me/Lruihao)
+<!-- - [PayPal](https://paypal.me/Lruihao) -->
 
-Thanks to the following sponsors for their support:
+Thanks to the following sponsors for their great support:
 
-- [translate.js](https://github.com/xnx3/translate) Sponsoring [Enterprise Translation Channel](https://translate.zvo.cn/4087.html).
+- [translate.js](https://github.com/xnx3/translate) sponsored [Enterprise Translation Channel](https://translate.zvo.cn/4087.html).
 
 ## Author
 

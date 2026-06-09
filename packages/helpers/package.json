@@ -1,0 +1,15 @@
+{
+  "name": "@hugo-fixit/helpers",
+  "private": true,
+  "description": "Code generation helpers for the FixIt theme",
+  "author": "Lruihao",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "tsx src/index.ts"
+  },
+  "devDependencies": {
+    "@hugo-fixit/shared": "workspace:*",
+    "consola": "^3.4.2",
+    "ora": "^9.4.0"
+  }
+}

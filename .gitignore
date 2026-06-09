@@ -1,18 +1,35 @@
-# Hugo default output directory
-public/
-resources/
-
 # Hugo
 .hugo_build.lock
 jsconfig.json
+.hugo_cache
+public/
+resources/
 
 # NPM
 node_modules/
+.eslintcache
 
 # VSCode
 .vscode/*
 !.vscode/extensions.json
 !.vscode/settings.json
+
+# Trae
+.trae/
+
+# Claude
+.claude/
+
+# Vercel
+.vercel/
+
+# Environment Variables
+.env*.local
+
+# Documentation
+docs/
+CHANGELOG.md
+TODO.md
 
 # OS Files
 ## Windows
@@ -26,5 +43,3 @@ $RECYCLE.BIN/
 
 ## Linux
 .directory
-
-CHANGELOG.md

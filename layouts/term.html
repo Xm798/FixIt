@@ -8,20 +8,11 @@
     {{- /* Title */ -}}
     {{- $taxonomy := .Data.Singular -}}
     {{- $pageCount := len .Pages -}}
-    {{- $termIcon := "" -}}
+    {{- $termIcon := .Params.titleIcon | default (dict "Taxonomy" $taxonomy "Slot" "term" | partial "function/get-taxonomy-icon.html") -}}
     {{- $termTitle := .Title -}}
-    {{- if eq $taxonomy "category" -}}
-      {{- $termIcon = "fa-regular fa-folder-open" -}}
-    {{- else if eq $taxonomy "tag" -}}
-      {{- $termIcon = "fa-solid fa-tag" -}}
-    {{- else if eq $taxonomy "collection" -}}
-      {{- $termIcon = "fa-solid fa-layer-group" -}}
-    {{- else -}}
-      {{- $termTitle = printf "%v - %v" (T $taxonomy | default $taxonomy) .Title -}}
-    {{- end -}}
     <h1 class="single-title animate__animated animate__pulse animate__faster">
       {{- with $termIcon -}}
-        {{- dict "Class" (add . " fa-fw me-1") | partial "plugin/icon.html" -}}
+        {{- dict "Class" (add . " me-1") | partial "plugin/icon.html" -}}
       {{- end -}}
       {{- $termTitle }} <sup>{{ $pageCount }}</sup>
     </h1>
@@ -34,10 +25,10 @@
       {{- else -}}
         {{- $pages = .Paginate $pages -}}
       {{- end -}}
-      {{- partial "recently-updated.html" . -}}
+      {{- partial "section/recently-updated.html" . -}}
       {{- range $pages.PageGroups -}}
         <h2 class="group-title">
-          {{- dict "Class" "fa-regular fa-calendar fa-fw me-1" | partial "plugin/icon.html" -}}
+          {{- dict "Class" "fa-regular fa-calendar me-1" | partial "plugin/icon.html" -}}
           {{- .Key -}}
         </h2>
         {{- range .Pages -}}
@@ -45,7 +36,7 @@
             <a href="{{ .RelPermalink }}" class="archive-item-link">
               {{- $repost := .Params.repost | default dict -}}
               {{- if eq $repost.enable true -}}
-                {{- dict "Class" "fa-solid fa-share fa-fw text-success me-1" | partial "plugin/icon.html" -}}
+                {{- dict "Class" "fa-solid fa-share text-success me-1" | partial "plugin/icon.html" -}}
               {{- end -}}
               {{- cond (.Param "capitalizeTitles") (title .LinkTitle) .LinkTitle -}}
             </a>
@@ -55,7 +46,7 @@
           </article>
         {{- end -}}
       {{- end -}}
-      {{- partial "paginator.html" . -}}
+      {{- partial "base/paginator.html" . -}}
     {{- end -}}
   </div>
 {{- end -}}

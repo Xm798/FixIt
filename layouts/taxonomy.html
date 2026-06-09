@@ -5,17 +5,12 @@
 
 {{- define "content" -}}
   {{- $taxonomies := .Data.Plural -}}
-  {{- $iconMap := dict
-    "categories" "fa-solid fa-folder-tree"
-    "collections" "fa-solid fa-layer-group"
-    "tags" "fa-solid fa-tags"
-  -}}
-  {{- $icon := index $iconMap $taxonomies | default $iconMap.categories -}}
+  {{- $icon := .Params.titleIcon | default (dict "Taxonomy" .Data.Singular "Slot" "title" | partial "function/get-taxonomy-icon.html") -}}
 
   <div class="page archive">
     {{- /* Title */ -}}
     <h1 class="single-title animate__animated animate__pulse animate__faster">
-      {{- dict "Class" (add $icon " fa-fw me-1") | partial "plugin/icon.html" -}}
+      {{- dict "Class" (add $icon " me-1") | partial "plugin/icon.html" -}}
       {{- .Params.Title | default (T $taxonomies) | default $taxonomies | dict "Some" | T "allSome" }} <sup>{{ len .Data.Terms.ByCount }}</sup>
     </h1>
     {{- /* Render different taxonomies */ -}}

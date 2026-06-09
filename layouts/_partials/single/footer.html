@@ -19,7 +19,8 @@
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
-        <span title="{{ dict "Date" ("2006-01-02 15:04:05" | .Lastmod.Format) | T "single.updatedOnDate" }}">
+        {{- $updateTitle := dict "Date" ("2006-01-02 15:04:05" | .Lastmod.Format) | T "single.updatedOnDate" -}}
+        <span title="{{ $updateTitle }}">
           {{- with .Lastmod | dateFormat (.Site.Params.dateformat | default "2006-01-02") -}}
             {{- dict "Date" . | T "single.updatedOnDate" -}}&nbsp;
             {{- if $gitRepo -}}
@@ -29,7 +30,7 @@
                   {{- $title = printf "%s&#10Commit Date: %v" $title (.CommitDate | dateFormat "2006-01-02 15:04:05") -}}
                 {{- end -}}
                 <a class="git-hash" href="{{ printf `%v/commit/%v` $gitRepo .Hash }}" rel="external nofollow noopener noreferrer" target="_blank" title="{{ $title | safeHTML }}">
-                  {{- dict "Class" "fa-solid fa-hashtag fa-fw" | partial "plugin/icon.html" -}}
+                  {{- dict "Class" "fa-solid fa-hashtag" | partial "plugin/icon.html" -}}
                   {{- .AbbreviatedHash -}}
                 </a>
               {{- end -}}
@@ -80,7 +81,8 @@
             {{- $linkOptions = $linkOptions | append $options -}}
           {{- end -}}
           {{- range $linkOptions -}}
-            <span>{{ partial "plugin/link.html" . }}</span>
+            {{- $commonOptions := dict "ExternalIcon" false -}}
+            <span>{{ partial "plugin/link.html" (. | merge $commonOptions) }}</span>
           {{- end -}}
         </div>
         <div class="post-info-share">
@@ -96,14 +98,17 @@
     <section class="post-tags">
       {{- $tagTerms := .GetTerms "tags" -}}
       {{- if $tagTerms -}}
-        {{- dict "Class" "fa-solid fa-tags fa-fw me-1" | partial "plugin/icon.html" -}}
+        {{- dict "Class" "fa-solid fa-tags me-1" | partial "plugin/icon.html" -}}
         {{- range $tagTerms -}}
-          <a href="{{ partial "function/escapeurl.html" .RelPermalink }}" class="post-tag" title="{{ printf "%v - %v" (T "tags") .LinkTitle }}">{{ .LinkTitle }}</a>
+          {{- $href := partial "function/escapeurl.html" .RelPermalink -}}
+          {{- $title := printf "%v - %v" (T "tags") .LinkTitle -}}
+          <a href="{{ $href }}" class="post-tag" title="{{ $title }}">{{ .LinkTitle }}</a>
         {{- end -}}
       {{- end -}}
     </section>
     <section>
-      <span><a href="javascript:void(0);" onclick="window.history.back();">{{ T "single.back" }}</a></span>&nbsp;|&nbsp;<span><a href="{{ .Site.Store.Get "homeRelPermalink" }}">{{ T "single.home" }}</a></span>
+      {{- $relLangURL := relLangURL "" -}}
+      <span><a href="javascript:void(0);" onclick="window.history.back();">{{ T "single.back" }}</a></span>&nbsp;|&nbsp;<span><a href="{{ $relLangURL }}">{{ T "single.home" }}</a></span>
     </section>
   </div>
 
@@ -125,7 +130,7 @@
     {{- with $prev -}}
       {{- $capitalizeTitles := .Param "capitalizeTitles" -}}
       <a href="{{ .RelPermalink }}" class="post-nav-item" rel="prev" title="{{ cond $capitalizeTitles (title .LinkTitle) .LinkTitle }}">
-        {{- dict "Class" "fa-solid fa-angle-left fa-fw" | partial "plugin/icon.html" -}}
+        {{- dict "Class" "fa-solid fa-angle-left" | partial "plugin/icon.html" -}}
         {{- cond $capitalizeTitles (title .LinkTitle) .LinkTitle -}}
       </a>
     {{- end -}}
@@ -133,7 +138,7 @@
       {{- $capitalizeTitles := .Param "capitalizeTitles" -}}
       <a href="{{ .RelPermalink }}" class="post-nav-item" rel="next" title="{{ cond $capitalizeTitles (title .LinkTitle) .LinkTitle }}">
         {{- cond $capitalizeTitles (title .LinkTitle) .LinkTitle -}}
-        {{- dict "Class" "fa-solid fa-angle-right fa-fw" | partial "plugin/icon.html" -}}
+        {{- dict "Class" "fa-solid fa-angle-right" | partial "plugin/icon.html" -}}
       </a>
     {{- end -}}
   </div>

@@ -1,3 +1,14 @@
+{{- /*
+  Encrypted content renderer.
+  - Encrypts content payload and renders decryptor UI.
+  - Supports full-page mode and partial mode with isolated target container.
+  @param {String} .Password encryption password
+  @param {String} .Content content to encrypt and render
+  @param {String} [.Message] custom input placeholder message
+  @param {Boolean} [.IsPartial] whether current render is partial mode
+  @param {Object} [.Page] current page context (required when IsPartial is true)
+*/ -}}
+
 {{- if .Password -}}
   {{- /* Content Encryption */ -}}
   {{- $content := dict "Content" .Content "Password" .Password | partial "function/content-encryption.html" -}}
@@ -16,11 +27,11 @@
         <input type="password" id="{{ $id }}" class="fixit-decryptor-input" placeholder="🔑 {{ $message }}" />
       </label>
       <button class="fixit-decryptor-btn">
-        {{- dict "Class" "fa-solid fa-unlock" | partial "plugin/icon.html" }} {{ T "single.enterBtn" -}}
+        {{- dict "Class" "fa-solid fa-unlock" | partial "plugin/icon.html" }}{{ T "single.enterBtn" -}}
       </button>
       {{- if not .IsPartial -}}
         <button class="fixit-encryptor-btn">
-          {{- dict "Class" "fa-solid fa-lock" | partial "plugin/icon.html" }} {{ T "single.encryptyAgain" -}}
+          {{- dict "Class" "fa-solid fa-lock" | partial "plugin/icon.html" }}{{ T "single.encryptyAgain" -}}
         </button>
       {{- end -}}
     </div>

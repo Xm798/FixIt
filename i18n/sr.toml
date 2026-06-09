@@ -2,21 +2,23 @@
 # Превод на Српски
 # https://gohugo.io/content-management/multilingual/#translation-of-strings
 
-# === init ===
+# === Init ===
 [init]
+hugoVersionError = "Верзија Hugo-а је прениска.\n\nТренутна верзија Hugo-а је {{ .Current }}, а минимална подржана верзија за FixIt је {{ .Minimal }}.\n\nАко покрећете Hugo на свом рачунару, погледајте https://gohugo.io/getting-started/installing/#upgrade-hugo за водич за надоградњу.\n\nАко постављате на платформу треће стране, конфигуришите верзију Hugo-а у складу с тим."
+hugoExtendedWarn = "Верзија Hugo Extended је неопходна за подршку SCSS-а."
 configurationError = "Грешка у конфигурацији\nНисте правилно конфигурисали параметар верзије FixIt. Погледајте https://fixit.lruihao.cn/documentation/basics/#theme-configuration"
 compatibilityError = "Грешка у компатибилности ({{ .From }} -> {{ .To }}):\nИмате некомпатибилно ажурирање. Погледајте https://github.com/hugo-fixit/FixIt/releases"
 devVersionWarn = "Користите развојну верзију FixIt. Размотрите коришћење стабилне верзије.\nПогледајте https://github.com/hugo-fixit/FixIt/releases"
 devEnvWarn = "Тренутно окружење је \"развојно\". \"Систем коментара\", \"PWA\", \"CDN\", \"отисак прста\" и \"аналитика\" ће бити онемогућени."
 quicklyUpgrade = "Брзо ажурирање користите команду: "
-# === init ===
+# === Init ===
 
-# === baseof ===
+# === Base Layout ===
 [baseof]
 backToTop = "Назад на Врх"
 viewComments = "Погледај Коментаре"
 noscript = "Овај сајт најбоље ради са омогућеним JavaScript-ом."
-# === baseof ===
+# === Base Layout ===
 
 # === Taxonomy ===
 [archives]
@@ -65,29 +67,27 @@ other = "{{ .Count }} чланака укупно"
 more = "Више"
 # === Pagination ===
 
-# === partials/header.html ===
+# === Header ===
 [header]
 selectLanguage = "Изабери Језик"
 noMoretTranslations = "Нема више превода"
 switchTheme = "Промени Тему"
-# === partials/header.html ===
+# === Header ===
 
-# === partials/footer.html ===
+# === Footer ===
 [footer]
 poweredBySome = "Покреће {{ .Hugo }} | Тема - {{ .Theme }}"
 siteUV = "Укупно посетилаца"
 sitePV = "Укупно посета"
 siteRunning = "Website running ..."
-# === partials/footer.html ===
+# === Footer ===
 
-# === partials/comment.html ===
+# === Comment ===
 [comment]
-valineLang = "sr" # Valine не подржава српски
 valinePlaceholder = "Ваш коментар ..."
-facebookLanguageCode = "sr_RS"
-# === partials/comment.html ===
+# === Comment ===
 
-# === partials/assets.html ===
+# === Assets ===
 [assets]
 search = "Претрага"
 searchPlaceholder = "Претражи наслове или садржај..."
@@ -95,21 +95,28 @@ searchIn = "Претражи у {{ . }}"
 gotoResultsPage = "Иди на страницу резултата претраге ..."
 clear = "Очисти"
 cancel = "Поништи"
-noResultsFound = "Без резултата"
+noResultsFound = "Резултати нису пронађени"
 copyToClipboard = "Копирај на радну таблу"
-editLockTitle = "Закључај блок кода који се може уређивати"
-editUnLockTitle = "Откључајте блок кода који се може уређивати"
+copyText = "Копирај"
+copiedText = "Копирано"
+toggleLineNumbers = "Прекидач за бројеве линија"
+toggleLineWrap = "Прекидач за оматање линија"
+toggleCodeEditable = "Пребаци уређивање блока кода"
+downloadCode = "Преузми код"
+expandCode = "Прошири или смањи блок кода"
+fullscreen = "Цео екран"
+exitFullscreen = "Изађи из целог екрана"
 cookieconsentMessage = "Ова веб локација користи Cookies да би побољшала ваше искуство."
 cookieconsentDismiss = "Договорити се"
 cookieconsentLink = "Сазнајте више"
-# === partials/assets.html ===
+# === Assets ===
 
-# === partials/plugin/share.html ===
+# === Share ===
 [shareOn]
 other = "Подели на"
-# === partials/plugin/share.html ===
+# === Share ===
 
-# === posts/single.html ===
+# === Single Post ===
 [single]
 contents = "Садржаји"
 pin = "Закачи"
@@ -157,46 +164,54 @@ wechatpay = "WeChat Pay"
 alipay = "Alipay"
 paypal = "PayPal"
 bitcoin = "Bitcoin"
-# === posts/single.html ===
+# === Single Post ===
 
-# === 404.html ===
+# === Error Pages ===
 [pageNotFound]
 other = "Страница није пронађена"
 
 [pageNotFoundText]
 other = "Страница коју тражите не постоји. Жао нам је."
-# === 404.html ===
+# === Error Pages ===
 
-# === offline ===
+# === Offline ===
 [offlineTitle]
 other = "Оффлине"
 
 [offlineText]
 other = "Нисте повезани на Интернет, биће доступне само кеширане странице."
-# === offline ===
+# === Offline ===
 
-# === GitHub Alert ===
+# === Link Redirection ===
+[linkRedirection]
+title = "Обавештење о преусмеравању"
+message = "Управо ћете напустити {{ .Title }}. Обратите пажњу на безбедност свог налога и имовине."
+confirm = "Настави посету"
+# === Link Redirection ===
+
+# === Alert ===
 [alert]
 note = "Напомена"
 tip = "Савет"
 important = "Важно"
 warning = "Упозорење"
 caution = "Опрез"
-# === GitHub Alert ===
+# === Alert ===
 
-# === Task lists ===
+# === Task List ===
 [taskList]
+x = "Проверено"
 " " = "Непроверено"
-"x" = "Проверено"
 "/" = "У току"
 "-" = "Отказано"
 "<" = "Планирано"
 ">" = "Преустановљено"
 "!" = "Важно"
+"!x" = "Важно Проверено"
 "?" = "Питање"
-# === Task lists ===
+# === Task List ===
 
-# === shortcodes/admonition.html ===
+# === Admonition ===
 [admonition]
 note = "Напомена"
 abstract = "Сажетак"
@@ -211,11 +226,26 @@ danger = "Опасност"
 bug = "Грешка"
 example = "Пример"
 quote = "Цитат"
-# === shortcodes/admonition.html ===
+# === Admonition ===
 
-# === shortcodes/version.html ===
+# === Version ===
 [version]
 new = "НОВО"
 changed = "ПРОМЕЊЕНО"
 deleted = "ОБРИСАНО"
-# === shortcodes/version.html ===
+deprecated = "ЗАСТАРЕЛО"
+# === Version ===
+
+# === Diagram ===
+[diagram]
+zoomIn = "Увећај"
+zoomOut = "Умањи"
+reset = "Ресетуј"
+download = "Преузми SVG"
+# === Diagram ===
+
+# === Tabs ===
+[tabs]
+diagram = "Дијаграм"
+code = "Код"
+# === Tabs ===
